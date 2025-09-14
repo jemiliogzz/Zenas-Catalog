@@ -21,7 +21,7 @@ product_caption = 'Our warm, comfortable, ' + option + ' sweatsuit!'
 # use the color selected to go back and get all the info from the database
 #file_name, price, size_list, upsell_product_desc, file_url
 #where color_or_style = '" + option + "';"
-table_prod_data = session.table("ZENAS_ATHLEISURE_DB.PRODUCTS.CATALOG_FOR_WEBSITE").select(col('FILE_NBAME'), col('PRICE'), col('SIZE_LIST'), col('UPSELL_PRODUCT_DESC'), col('FILE_URL'), col('COLOR_OR_STYLE'))
+table_prod_data = session.table("ZENAS_ATHLEISURE_DB.PRODUCTS.CATALOG_FOR_WEBSITE").select(col('FILE_NAME'), col('PRICE'), col('SIZE_LIST'), col('UPSELL_PRODUCT_DESC'), col('FILE_URL'), col('COLOR_OR_STYLE'))
 pd_prod_data = table_prod_data.to_pandas() 
 pd_prod_data = pd_prod_data.loc[pd_prod_data['COLOR_OR_STYLE'] == option].iloc[0]
 
