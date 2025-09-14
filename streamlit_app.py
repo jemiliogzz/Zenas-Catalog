@@ -23,7 +23,8 @@ product_caption = 'Our warm, comfortable, ' + option + ' sweatsuit!'
 #where color_or_style = '" + option + "';"
 table_prod_data = session.table("ZENAS_ATHLEISURE_DB.PRODUCTS.CATALOG_FOR_WEBSITE").select(col('FILE_NAME'), col('PRICE'), col('SIZE_LIST'), col('UPSELL_PRODUCT_DESC'), col('FILE_URL'), col('COLOR_OR_STYLE'))
 pd_prod_data = table_prod_data.to_pandas() 
-pd_prod_data = pd_prod_data.loc[pd_prod_data['COLOR_OR_STYLE'] == option].iloc[0]
+pd_aux = pd_prod_data.to_pandas()
+pd_prod_data = pd_aux.loc[pd_aux['COLOR_OR_STYLE'] == option].iloc[0]
 
 # assign each column of the row returned to its own variable 
 price = '$' + str(pd_prod_data['PRICE'].iloc[0])+'0'
