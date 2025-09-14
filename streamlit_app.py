@@ -9,7 +9,7 @@ cnx = st.connection("snowflake")
 session = cnx.session()
 
 # get a list of colors for a drop list selection
-table_colors = session.view("ZENAS_ATHLEISURE_DB.PRODUCTS.CATALOG_FOR_WEBSITE").select(col('COLOR_OR_STYLE'))
+table_colors = session.table("ZENAS_ATHLEISURE_DB.PRODUCTS.CATALOG_FOR_WEBSITE").select(col('COLOR_OR_STYLE'))
 pd_colors = table_colors.to_pandas()
 
 # Oyt the list of colors into a drop list selector 
